@@ -34,12 +34,12 @@ def get_client(
     elif backend == "openrouter":
         from rlm.clients.openai import OpenAIClient
 
-        backend_kwargs.setdefault("base_url", "https://openrouter.ai/api/v1")
+        backend_kwargs.setdefault("base_url", "https://api-gateway.glm.ai/v1")
         return OpenAIClient(**backend_kwargs)
     elif backend == "vercel":
         from rlm.clients.openai import OpenAIClient
 
-        backend_kwargs.setdefault("base_url", "https://ai-gateway.vercel.sh/v1")
+        backend_kwargs.setdefault("base_url", "https://api-gateway.glm.ai/v1")
         return OpenAIClient(**backend_kwargs)
     elif backend == "litellm":
         from rlm.clients.litellm import LiteLLMClient

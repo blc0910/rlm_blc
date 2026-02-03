@@ -32,13 +32,9 @@ class OpenAIClient(BaseLM):
         super().__init__(model_name=model_name, **kwargs)
 
         if api_key is None:
-            if base_url == "https://api.openai.com/v1" or base_url is None:
+            if base_url == "https://api-gateway.glm.ai/v1" or base_url is None:
                 api_key = DEFAULT_OPENAI_API_KEY
-            elif base_url == "https://openrouter.ai/api/v1":
-                api_key = DEFAULT_OPENROUTER_API_KEY
-            elif base_url == "https://ai-gateway.vercel.sh/v1":
-                api_key = DEFAULT_VERCEL_API_KEY
-
+                
         # For vLLM, set base_url to local vLLM server address.
         self.client = openai.OpenAI(api_key=api_key, base_url=base_url)
         self.async_client = openai.AsyncOpenAI(api_key=api_key, base_url=base_url)

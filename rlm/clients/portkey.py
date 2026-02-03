@@ -17,7 +17,7 @@ class PortkeyClient(BaseLM):
         self,
         api_key: str,
         model_name: str | None = None,
-        base_url: str | None = "https://api.portkey.ai/v1",
+        base_url: str | None = "https://api-gateway.glm.ai/v1",
         **kwargs,
     ):
         super().__init__(model_name=model_name, **kwargs)
